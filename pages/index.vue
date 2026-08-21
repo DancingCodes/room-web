@@ -57,7 +57,7 @@ onMounted(async () => {
     || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
 
   try {
-    const response = await $fetch<ApiResponse<AppVersion>>(`${config.public.apiBase}/app-version/latest`)
+    const response = await $fetch<ApiResponse<AppVersion>>(`${config.public.apiBase}/version/latest`)
     if (response.code === 200) version.value = response.data
     else error.value = true
   } catch {
