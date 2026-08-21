@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ArrowDownToLine, Check, ChevronRight, Download, ExternalLink, MessageCircleMore, ShieldCheck, Smartphone, Sparkles, UsersRound } from 'lucide-vue-next'
+import { ArrowDownToLine, Check, ChevronRight, Download, ExternalLink, MessageCircleMore, ShieldCheck, Smartphone, UsersRound } from 'lucide-vue-next'
 
 type AppVersion = {
   version_code: number
@@ -68,11 +68,7 @@ function downloadApp() {
         <img src="/images/logo.png" alt="Room" />
         <span>Room</span>
       </NuxtLink>
-      <nav aria-label="主导航">
-        <a href="#features">功能</a>
-        <a href="#download">下载</a>
-        <NuxtLink to="/privacy">隐私</NuxtLink>
-      </nav>
+
       <button class="header-download" type="button" :disabled="!version" @click="downloadApp">
         下载 App
         <Download :size="16" :stroke-width="2.2" />
@@ -96,7 +92,6 @@ function downloadApp() {
       </div>
 
       <div class="device-stage" aria-label="Room 应用界面示意">
-        <div class="stage-label stage-label-top"><span></span>LIVE NOW</div>
         <div class="phone-frame">
           <div class="phone-speaker"></div>
           <div class="phone-screen">
@@ -113,7 +108,6 @@ function downloadApp() {
             <div class="mic-control"><MessageCircleMore :size="19" /><span>输入消息</span><span class="mic-button"><UsersRound :size="18" /></span></div>
           </div>
         </div>
-        <div class="stage-label stage-label-bottom"><Sparkles :size="16" /> VOICE · CHAT · FRIENDS</div>
       </div>
     </section>
 
