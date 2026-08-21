@@ -1,6 +1,30 @@
-@use 'tokens';
-@use 'base';
-@use 'layout';
-@use 'home';
-@use 'policy';
-@use 'responsive';
+:root {
+  --ink: #172121;
+  --muted: #60706f;
+  --paper: #f8f6f0;
+  --line: #d8ddd3;
+  --mint: #a8dbc8;
+  --coral: #ee927e;
+  --gold: #f3c969;
+  --blue: #91bdce;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  background: var(--paper);
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: .52; }
+
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 { letter-spacing: 0; }
