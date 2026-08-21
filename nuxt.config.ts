@@ -1,3 +1,5 @@
+const apiBase = process.env.NUXT_PUBLIC_API_BASE ?? 'https://room.moonc.love/api/v1'
+
 export default defineNuxtConfig({
   ssr: true,
   css: ['~/assets/css/main.css'],
@@ -11,7 +13,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      apiBase: '/api/v1',
+      apiBase,
     },
   },
   site: {
