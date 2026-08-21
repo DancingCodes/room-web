@@ -2,7 +2,7 @@ const apiBase = process.env.NUXT_PUBLIC_API_BASE ?? 'https://room.moonc.love/api
 
 export default defineNuxtConfig({
   ssr: true,
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/scss/main.scss'],
   modules: ['@nuxtjs/sitemap'],
   app: {
     head: {

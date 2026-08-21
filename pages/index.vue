@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ArrowDownToLine, Check, ChevronRight, Download, ExternalLink, MessageCircleMore, ShieldCheck, Smartphone, UsersRound } from 'lucide-vue-next'
+import { ArrowDownToLine, Check, ChevronRight, Download, MessageCircleMore, ShieldCheck, Smartphone, UsersRound } from 'lucide-vue-next'
 
 type AppVersion = {
   version_code: number
@@ -152,7 +152,7 @@ function downloadApp() {
     <footer>
       <NuxtLink class="brand" to="/"><img src="/images/logo.png" alt="" /><span>星闪</span></NuxtLink>
       <p>和朋友保持连接。</p>
-      <div><NuxtLink to="/privacy">隐私政策</NuxtLink><NuxtLink to="/terms">用户协议</NuxtLink><a href="mailto:hello@moonc.love">联系邮箱 <ExternalLink :size="13" /></a></div>
+      <div><NuxtLink to="/privacy">隐私政策</NuxtLink><NuxtLink to="/terms">用户协议</NuxtLink></div>
     </footer>
   </main>
 </template>
