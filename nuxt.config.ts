@@ -1,4 +1,4 @@
-const apiBase = process.env.NUXT_PUBLIC_API_BASE ?? 'https://room.moonc.love/api/v1'
+const apiBase = process.env.NUXT_PUBLIC_API_BASE ?? 'https://room.moonc.love/api/v1/app'
 
 export default defineNuxtConfig({
   ssr: true,
