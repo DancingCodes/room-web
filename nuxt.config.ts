@@ -17,8 +17,8 @@ export default defineNuxtConfig({
     },
   },
   site: {
-    url: 'https://room.moonc.love',
-    name: 'Room',
+    url: 'https://roomweb.moonc.love',
+    name: '星闪',
   },
   nitro: {
     prerender: {

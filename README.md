@@ -1,6 +1,6 @@
-# Room Web
+# 星闪 Web
 
-Room 官网与 Android 下载页，使用 Nuxt 3 静态预渲染。
+星闪官网与 Android 下载页，使用 Nuxt 3 静态预渲染。
 
 ## 开发
 

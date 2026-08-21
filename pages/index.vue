@@ -22,11 +22,11 @@ const versionLabel = computed(() => version.value ? `Android · v${version.value
 const releaseItems = computed(() => version.value?.release_notes.split(/\r?\n|；|。/).map(item => item.trim()).filter(Boolean) ?? [])
 
 useSeoMeta({
-  title: 'Room - 一起聊天的语音房间',
-  description: 'Room 是一个轻松进入、实时聊天的语音房间应用。下载 Android 版，和朋友随时开聊。',
-  ogTitle: 'Room - 一起聊天的语音房间',
+  title: '星闪 - 一起聊天的语音房间',
+  description: '星闪 是一个轻松进入、实时聊天的语音房间应用。下载 Android 版，和朋友随时开聊。',
+  ogTitle: '星闪 - 一起聊天的语音房间',
   ogDescription: '轻松进入语音房间，和朋友实时聊天。',
-  ogImage: 'https://room.moonc.love/images/logo.png',
+  ogImage: 'https://roomweb.moonc.love/images/logo.png',
   twitterCard: 'summary',
 })
 
@@ -36,10 +36,10 @@ useHead({
     children: JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'SoftwareApplication',
-      name: 'Room',
+      name: '星闪',
       applicationCategory: 'SocialNetworkingApplication',
       operatingSystem: 'Android',
-      downloadUrl: 'https://room.moonc.love',
+      downloadUrl: 'https://roomweb.moonc.love',
     }),
   }],
 })
@@ -64,9 +64,9 @@ function downloadApp() {
 <template>
   <main>
     <header class="site-header">
-      <NuxtLink class="brand" to="/" aria-label="Room 首页">
-        <img src="/images/logo.png" alt="Room" />
-        <span>Room</span>
+      <NuxtLink class="brand" to="/" aria-label="星闪 首页">
+        <img src="/images/logo.png" alt="星闪" />
+        <span>星闪</span>
       </NuxtLink>
 
       <button class="header-download" type="button" :disabled="!version" @click="downloadApp">
@@ -79,23 +79,23 @@ function downloadApp() {
       <div class="hero-copy">
         <p class="eyebrow"><span></span> REAL-TIME VOICE ROOM</p>
         <h1 id="hero-title">说你想说的，<br><em>随时在场。</em></h1>
-        <p class="hero-description">Room 为每一次轻松的相聚留出空间。创建房间、加入朋友、打开麦克风，聊天自然开始。</p>
+        <p class="hero-description">星闪 为每一次轻松的相聚留出空间。创建房间、加入朋友、打开麦克风，聊天自然开始。</p>
         <div class="hero-actions" id="download">
           <button class="primary-action" type="button" :disabled="!version" @click="downloadApp">
             <Download :size="20" :stroke-width="2.2" />
             <span>{{ loading ? '正在获取版本' : version ? '下载 Android 版' : '暂未发布' }}</span>
           </button>
-          <a class="text-action" href="#features">了解 Room <ChevronRight :size="17" /></a>
+          <a class="text-action" href="#features">了解 星闪 <ChevronRight :size="17" /></a>
         </div>
         <p v-if="version" class="version-note"><Check :size="15" /> {{ versionLabel }} · 官方安装包</p>
         <p v-else-if="error" class="version-note muted">暂时无法获取版本信息，请稍后刷新页面。</p>
       </div>
 
-      <div class="device-stage" aria-label="Room 应用界面示意">
+      <div class="device-stage" aria-label="星闪 应用界面示意">
         <div class="phone-frame">
           <div class="phone-speaker"></div>
           <div class="phone-screen">
-            <div class="screen-bar"><strong>Room</strong><span>20:26</span></div>
+            <div class="screen-bar"><strong>星闪</strong><span>20:26</span></div>
             <div class="room-status"><span class="status-dot"></span> 正在聊天</div>
             <h2>午后闲聊室</h2>
             <p>4 人正在房间里</p>
@@ -138,19 +138,19 @@ function downloadApp() {
     <section class="release-section" aria-labelledby="release-title">
       <div>
         <p class="eyebrow"><span></span> LATEST RELEASE</p>
-        <h2 id="release-title">现在就加入 Room。</h2>
+        <h2 id="release-title">现在就加入 星闪。</h2>
         <p>适用于 Android 设备。下载后根据系统提示完成安装。</p>
       </div>
       <div class="release-card">
         <div class="release-top"><Smartphone :size="23" /><span>{{ versionLabel }}</span><span class="release-state">{{ loading ? '同步中' : version ? '可下载' : '未发布' }}</span></div>
         <ul v-if="releaseItems.length"><li v-for="item in releaseItems" :key="item"><Check :size="16" />{{ item }}</li></ul>
-        <p v-else>开始使用 Room，与朋友随时开聊。</p>
+        <p v-else>开始使用 星闪，与朋友随时开聊。</p>
         <button type="button" :disabled="!version" @click="downloadApp">{{ version ? '下载最新版' : '暂未提供下载' }} <ArrowDownToLine :size="18" /></button>
       </div>
     </section>
 
     <footer>
-      <NuxtLink class="brand" to="/"><img src="/images/logo.png" alt="" /><span>Room</span></NuxtLink>
+      <NuxtLink class="brand" to="/"><img src="/images/logo.png" alt="" /><span>星闪</span></NuxtLink>
       <p>和朋友保持连接。</p>
       <div><NuxtLink to="/privacy">隐私政策</NuxtLink><NuxtLink to="/terms">用户协议</NuxtLink><a href="mailto:hello@moonc.love">联系邮箱 <ExternalLink :size="13" /></a></div>
     </footer>
