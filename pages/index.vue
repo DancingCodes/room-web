@@ -17,9 +17,16 @@ const config = useRuntimeConfig()
 const version = ref<AppVersion | null>(null)
 const loading = ref(true)
 const error = ref(false)
+const isIOS = ref(false)
 
 const versionLabel = computed(() => version.value ? `Android · v${version.value.version_code}` : 'Android 版')
 const releaseItems = computed(() => version.value?.release_notes.split(/\r?\n|；|。/).map(item => item.trim()).filter(Boolean) ?? [])
+const canDownload = computed(() => Boolean(version.value) && !isIOS.value)
+const downloadLabel = computed(() => {
+  if (isIOS.value) return 'iOS 版暂未提供'
+  if (loading.value) return '正在获取版本'
+  return version.value ? '下载 Android 版' : '暂未发布'
+})
 
 useSeoMeta({
   title: '星闪 - 一起聊天的语音房间',
@@ -45,6 +52,10 @@ useHead({
 })
 
 onMounted(async () => {
+  const userAgent = navigator.userAgent
+  isIOS.value = /iPhone|iPad|iPod/i.test(userAgent)
+    || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+
   try {
     const response = await $fetch<ApiResponse<AppVersion>>(`${config.public.apiBase}/app-version/latest`)
     if (response.code === 200) version.value = response.data
@@ -57,7 +68,7 @@ onMounted(async () => {
 })
 
 function downloadApp() {
-  if (version.value?.apk_url) window.location.assign(version.value.apk_url)
+  if (!isIOS.value && version.value?.apk_url) window.location.assign(version.value.apk_url)
 }
 </script>
 
@@ -69,8 +80,8 @@ function downloadApp() {
         <span>星闪</span>
       </NuxtLink>
 
-      <button class="header-download" type="button" :disabled="!version" @click="downloadApp">
-        下载 App
+      <button class="header-download" type="button" :disabled="!canDownload" @click="downloadApp">
+        {{ isIOS ? 'iOS 版暂未提供' : '下载 App' }}
         <Download :size="16" :stroke-width="2.2" />
       </button>
     </header>
@@ -81,9 +92,9 @@ function downloadApp() {
         <h1 id="hero-title">说你想说的，<br><em>随时在场。</em></h1>
         <p class="hero-description">星闪 为每一次轻松的相聚留出空间。创建房间、加入朋友、打开麦克风，聊天自然开始。</p>
         <div class="hero-actions" id="download">
-          <button class="primary-action" type="button" :disabled="!version" @click="downloadApp">
+          <button class="primary-action" type="button" :disabled="!canDownload" @click="downloadApp">
             <Download :size="20" :stroke-width="2.2" />
-            <span>{{ loading ? '正在获取版本' : version ? '下载 Android 版' : '暂未发布' }}</span>
+            <span>{{ downloadLabel }}</span>
           </button>
           <a class="text-action" href="#features">了解 星闪 <ChevronRight :size="17" /></a>
         </div>
@@ -142,10 +153,10 @@ function downloadApp() {
         <p>适用于 Android 设备。下载后根据系统提示完成安装。</p>
       </div>
       <div class="release-card">
-        <div class="release-top"><Smartphone :size="23" /><span>{{ versionLabel }}</span><span class="release-state">{{ loading ? '同步中' : version ? '可下载' : '未发布' }}</span></div>
+        <div class="release-top"><Smartphone :size="23" /><span>{{ versionLabel }}</span><span class="release-state">{{ isIOS ? 'iOS 暂未提供' : loading ? '同步中' : version ? '可下载' : '未发布' }}</span></div>
         <ul v-if="releaseItems.length"><li v-for="item in releaseItems" :key="item"><Check :size="16" />{{ item }}</li></ul>
         <p v-else>开始使用 星闪，与朋友随时开聊。</p>
-        <button type="button" :disabled="!version" @click="downloadApp">{{ version ? '下载最新版' : '暂未提供下载' }} <ArrowDownToLine :size="18" /></button>
+        <button type="button" :disabled="!canDownload" @click="downloadApp">{{ isIOS ? 'iOS 版暂未提供' : version ? '下载最新版' : '暂未提供下载' }} <ArrowDownToLine :size="18" /></button>
       </div>
     </section>
 
