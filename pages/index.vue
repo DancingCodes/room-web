@@ -33,7 +33,7 @@ useSeoMeta({
   description: '星闪 是一个轻松进入、实时聊天的语音房间应用。下载 Android 版，和朋友随时开聊。',
   ogTitle: '星闪 - 一起聊天的语音房间',
   ogDescription: '轻松进入语音房间，和朋友实时聊天。',
-  ogImage: 'https://roomweb.moonc.love/images/logo.png',
+  ogImage: 'https://roomweb.dancingcodes.cn/images/logo.png',
   twitterCard: 'summary',
 })
 
@@ -46,7 +46,7 @@ useHead({
       name: '星闪',
       applicationCategory: 'SocialNetworkingApplication',
       operatingSystem: 'Android',
-      downloadUrl: 'https://roomweb.moonc.love',
+      downloadUrl: 'https://roomweb.dancingcodes.cn',
     }),
   }],
 })

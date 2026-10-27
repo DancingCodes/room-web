@@ -1,4 +1,4 @@
-const apiBase = process.env.NUXT_PUBLIC_API_BASE ?? 'https://room.moonc.love/api/v1/app'
+const apiBase = process.env.NUXT_PUBLIC_API_BASE ?? 'https://room.dancingcodes.cn/api/v1/app'
 
 export default defineNuxtConfig({
   ssr: true,
@@ -17,7 +17,7 @@ export default defineNuxtConfig({
     },
   },
   site: {
-    url: 'https://roomweb.moonc.love',
+    url: 'https://roomweb.dancingcodes.cn',
     name: '星闪',
   },
   nitro: {
